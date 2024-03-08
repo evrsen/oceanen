@@ -35,11 +35,12 @@
     <body>
         <table>
             <tr>
-                <th>Titel</th>
+                <th>Filmtitel</th>
                 <th>Datum</th>
                 <th>Tid</th>
                 <th>Pris</th>
                 <th>Åldersgräns</th>
+                <th>Lokal</th>
                 <th>Länk</th>
             </tr>
             {% if events %}
@@ -50,6 +51,7 @@
                         <td>{{ event['time'] }}</td>
                         <td>{{ event['price'] }}</td>
                         <td>{{ event['age'] }}</td>
+                        <td><a href="https://www.oceanen.com}">Oceanen</a></td>
                         <td><a href="{{ event['url'] }}">Klicka Här</a></td>
                     </tr>
                 {% endfor %}

@@ -74,6 +74,8 @@ def start_scraper(b: StatefulBrowser, a: Flask):
             if event.get("uuid") in uuids:
                 continue
 
+            print("New event: ", event)
+
             with a.app_context():
                 db = get_db()
                 db.cursor().execute("INSERT INTO events (uuid, url, title, date, time, price, age) VALUES (?, ?, ?, ?, ?, ?, ?)", (
