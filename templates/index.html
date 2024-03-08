@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="sv">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Evenemanger</title>
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+
+            table, th, td {
+                padding: 6px;
+                border: 2px solid black;
+                border-collapse: collapse;
+                text-align: center;
+            }
+
+            table {
+                width: 100%;
+            }
+
+            th {
+                background-color: lightgray;
+            }
+
+            td {
+                white-space: nowrap;
+                overflow: auto;
+            }
+        </style>
+    </head>
+
+    <body>
+        <table>
+            <tr>
+                <th>Titel</th>
+                <th>Datum</th>
+                <th>Tid</th>
+                <th>Pris</th>
+                <th>Åldersgräns</th>
+                <th>Länk</th>
+            </tr>
+            {% if events %}
+                {% for event in events %}
+                    <tr>
+                        <td>{{ event['title'] }}</td>
+                        <td>{{ event['date'] }}</td>
+                        <td>{{ event['time'] }}</td>
+                        <td>{{ event['price'] }}</td>
+                        <td>{{ event['age'] }}</td>
+                        <td><a href="{{ event['url'] }}">Klicka Här</a></td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </table>
+    </body>
+</html>
